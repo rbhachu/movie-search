@@ -1,0 +1,137 @@
+/* base styles */
+
+/*HOMEPAGE STATE****************************************************/
+/*wrapper for search form (label + (input + search icon button)) to give illusion of being a single component */
+.input-wrapper {
+  margin: 5px 0px 5px 0px; /*margin around search bar*/
+  padding: 5px 0 5px 5px;
+
+  background: var(--backgroundcolor4);
+  border-radius: 5px;
+  border-bottom: 0px solid #333;
+  box-shadow: 0px 5px 30px var(--boxshadow1);
+}
+
+/* search form */
+form {
+  display: flex;
+  justify-content: center !important; /*align h centre*/
+  align-items: center; /*align v centre*/
+
+  margin: 0;
+  padding: 0; /* padding around label, form and button */
+}
+
+/*hide form label logo*/
+form label h2 a {
+  visibility: hidden;
+  opacity: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: 0;
+  width: 0;
+
+  transition: margin 0.5s, height 0.5s, width 0.5s, visibility 2s, opacity 2s, transform 2s;
+}
+
+
+/*SEARCH STATE*************************************************/
+.search .input-wrapper {
+  padding: 5px 0 5px 0px;
+}
+
+/*show form label, but hide text and show small logo img*/
+.search form label h2 a, .search form label h2 a:hover {
+  visibility: visible;
+  opacity: 1;
+
+  white-space: nowrap; /*hide text*/
+  overflow: hidden;
+  text-indent: 100%;
+
+  margin: 0 10px; /* spacing around label */
+  padding: 0;
+
+  height: 40px;
+  width: 30px;
+
+  background-size: 30px 40px;
+  background-repeat: no-repeat;
+  transition: all 0.5s ease-in-out; /*allows slow fade in/out on hover*/
+}
+.search form label h2 a {
+  background-image: url('/src/images/logo-small.png');
+  border: 0px solid rgb(122, 221, 9);
+
+}
+.search form label h2 a:hover {
+  background-image: url('/src/images/logo-small-hover.png');
+}
+/*SEARCH STATE*************************************************/
+
+
+
+/*HOMEPAGE STATE****************************************************/
+/* search form input */
+form input {
+  width: 100%;
+  min-height: 40px; /*homepage input min-height*/
+
+  margin: 0px 0 0 0px;
+  padding: 5px 5px 5px 10px; /*inside input padding*/
+
+  color: var(--textcolor2) !important;   
+  font-size: 1.4em; 
+  font-weight: var(--boldlevel3);
+  text-align: left;
+  vertical-align: middle;
+
+  border: 0.2em solid var(--bordercolor6) !important;
+  border-radius: 2px;
+  background-image: none !important;  
+  outline: none; /* hides outline on selecting input */
+
+  transition: all 0.5s ease-in-out; /*allows slow fade in/out on hover*/
+}
+/* search form input hover action */
+form input:hover, form input:focus, form input:active, form input:link {  
+  background-color: var(--backgroundcolor5);
+  background-image: none !important;  
+  border: 0.2em solid var(--bordercolor5) !important;
+}
+/*fix to ensure search input text color is consistent */
+form input:-webkit-autofill,
+form input:-webkit-autofill:hover, 
+form input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--textcolor2) !important;
+}
+/* search form input placeholder default text color */
+form input::placeholder{
+  color: var(--textcolor5);
+}
+
+
+/* search form button */
+form button, form button:hover {
+  height: 25px;
+  width: 25px;
+  margin: 0 10px; /* spacing around button */
+  padding: 0; 
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-position: center !important;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  background-color: transparent !important;
+}
+form button {
+  background-image: url('/src/images/search-icon.png');
+  transition: all 0.5s ease-in-out; /*allows slow fade in/out on hover*/
+  border: 0px solid rgb(122, 221, 9);
+
+}
+form button:hover {
+  background-image: url('/src/images/search-icon-hover.png');
+}

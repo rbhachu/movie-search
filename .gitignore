@@ -18,6 +18,13 @@
 .env.test.local
 .env.production.local
 
+# images - dont upload images sources
+/src/images/SOURCE
+
+#dont upload old source files
+/src/_ARCHIVE
+/src/components/OLD
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

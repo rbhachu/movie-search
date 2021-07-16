@@ -1,0 +1,215 @@
+/*footer*/
+footer {
+  z-index: 2 !important;
+  position: fixed;
+  left: 0px;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  width: 100% !important;
+  opacity: 1;
+  visibility: visible;
+  animation: fade-footer 1s linear;
+}
+@keyframes fade-footer {
+  0% { bottom:-100px; opacity:0; visibility:hidden;}  
+  100% {  bottom:0px; opacity:1; visibility:visible;}
+}
+
+
+/*Open/Close Icons*******************************************************************/
+.icon-plus, .icon-plus:hover, .icon-minus, .icon-minus:hover {
+  width: 25px;
+  height: 20px;
+  margin: 0px;
+  padding: 0; 
+  background-size: 25px 20px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  border: 0px solid rgb(145, 226, 13) ;
+}
+.icon-plus {
+  background-image: url('/src/images/plus-symbol-b.png');
+  /*transition: all 0.5s ease-in-out;*/ /*allows slow fade in/out on hover*/
+}
+.icon-plus:hover {
+  background-image: url('/src/images/plus-symbol-y.png');
+}
+.icon-minus {
+  background-image: url('/src/images/minus-symbol-y.png');
+}
+/*
+.icon-minus:hover {
+  background-image: url('/src/images/minus-symbol-y.png');
+}
+*/
+
+
+/********************************************************************/
+/* footer popup*/
+
+/*footer popup top title row*/
+/* p Title + Copyright Text + Open/Close Icons */
+.divOpen .row-top, .divClosed .row-top { 
+  margin: 0;
+  padding: 10px 10px 10px 5px !important;
+  vertical-align: middle !important;
+  cursor: pointer;
+  background: #555;
+  box-shadow: 1px 0px 10px var(--boxshadow3);
+}
+.divOpen .row-top { 
+  border-top: 1px solid var(--bordercolor5);
+  box-shadow: 0px 0px 10px var(--boxshadow2);
+}
+.divClosed .row-top { 
+  /*transition: all 0.5s ease-in-out;*/ /*allows slow fade in/out on hover*/
+  border-top: 1px solid #000;
+  box-shadow: 0px 0px 10px var(--boxshadow3);
+}
+.divClosed .row-top:hover { 
+  border-top: 1px solid var(--bordercolor5);
+  box-shadow: 0px 0px 10px var(--boxshadow2);
+}
+.divOpen .row-top p, .divClosed .row-top p { 
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center; 
+}
+
+/*title*/
+.divOpen .p-title, .divClosed .p-title { 
+  font-family: var(--fontfamily2);
+  font-size: 1.4em !important;
+  line-height: 0em;
+  font-weight: var(--boldlevel1);
+  margin: 0;
+  padding: 3px 10px 0 0;
+  border: 0px solid rgb(145, 226, 13) ;
+}
+.divOpen .p-title { 
+  color: var(--textcolor4);
+}
+.divClosed .p-title { 
+  color: var(--textcolor1) !important;
+  /*transition: all 0.5s ease-in-out;*/ /*allows slow fade in/out on hover*/
+}
+.divClosed .p-title:hover { 
+  color: var(--textcolor4) !important;
+}
+
+
+/*content wrapper*/
+/*CLOSED**********************************************************/
+.divWrapper {
+  visibility: hidden;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  height: 0;
+  width: 0;
+
+  background: var(--backgroundcolorsetB1);
+  transition: visibility 0.5s, opacity 0.5s, transform 1s ease-in-out;
+}
+
+/*OPEN*************************************************************/
+.divOpen .divWrapper {
+  visibility: visible;
+  opacity: 1;
+  height: 100%;
+  width: 100%;
+  margin: 0; 
+
+  padding: 20px 20px 10px 20px;
+
+  display: grid;
+  grid-template-columns: 70% 30%; /*split into 3 cols*/
+  grid-template-rows: 1fr; /* 1 row high */
+  gap: 0px 10px; /* col spacing */
+  justify-content: center; /* horizontal*/
+  align-items: flex-start; /* vertical*/
+}
+
+/* col1: intro text, col2: social links, col1: disclaimer text*/
+.divOpen .col1, .col2 {
+  margin: 0;
+  padding: 0;
+  filter: drop-shadow(0px 0px 1rem var(--dropshadow2)); /*adds suttle shadow behind elements to make them standout*/
+}
+/*intro text + disclaimer text*/
+.divOpen .col1 { 
+  display: grid;
+  justify-content: flex-start; /* horizontal*/
+  align-items: center; /* vertical*/
+}
+.divOpen .col1 p {
+  margin: 0 0 10px 0;
+  padding: 0 20px 10px 5px;
+}
+.divOpen .col1 p a {
+  margin: 0;
+  padding: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+.divOpen .col1 img {
+  display: inline-block;
+}
+
+
+/*social links*/
+.divOpen .col2 ul {
+  display: flex ;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; /* horizontal*/
+  align-items: center; /* vertical*/
+
+  margin: 0;
+  padding: 5px 0 0 0;
+
+}
+.divOpen .col2 li {
+  margin: 0;
+  padding: 0px 10px 20px 10px;
+
+  text-transform: capitalize;
+}
+.divOpen .col2 li a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+.divOpen .col2 li a:hover {
+  text-decoration: underline;
+}
+/*icon images */
+.divOpen .col2 li img {
+  width: 25px;
+  height: 25px;
+  margin: 0 5px 5px 0;
+  padding: 0;
+  vertical-align: middle; /* WORKS*/
+}
+
+
+/*footer body text*/
+.divOpen p {
+  font-family: var(--fontfamily1);
+  color: var(--textcolor6);
+  font-size: 1.1em;
+  line-height: 1.8em;
+  font-weight: var(--boldlevel1);
+}
+.divOpen p a {
+  color: var(--textcolor4);
+  font-weight: var(--boldlevel3);
+}
+/*footer social links*/
+.divOpen li a {
+  font-family: var(--fontfamily1);
+  font-size: 1em;
+  color: var(--textcolor4);
+  font-weight: var(--boldlevel1) !important;
+}

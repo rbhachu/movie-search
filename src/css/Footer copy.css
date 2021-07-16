@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+/* base styles */
+
+/*footer*/
+footer {
+  z-index: 2 !important;
+  position: fixed;
+  left: 0px;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  width: 100% !important;
+  opacity: 1;
+  visibility: visible;
+  animation: fade-footer 1s linear;
+}
+@keyframes fade-footer {
+  0% { bottom:-100px; opacity:0; visibility:hidden;}  
+  100% {  bottom:0px; opacity:1; visibility:visible;}
+}
+/*SEARCH STATE*************************************************/
+/* animate on search page load
+footer.search {
+  animation: fade-footer-search 3s linear;
+}
+@keyframes fade-footer-search {
+  0% {bottom:-100px; opacity:0; visibility:hidden;}
+  75% {bottom:-100px; opacity:0; visibility:hidden;}  
+  100% {bottom:0px; opacity:1; visibility:visible;}
+}
+*/
+
+/*Open/Close Icons*******************************************************************/
+.icon-plus, .icon-plus:hover, .icon-minus, .icon-minus:hover {
+  position: relative;
+  bottom: 2px;
+  right: 0;
+  width: 25px;
+  height: 20px;
+  margin: 3px 0 0 10px;
+  padding: 0 0 0 0; 
+  background-size: 25px 20px;
+  background-repeat: no-repeat;
+  white-space: nowrap; /*hide text*/
+  overflow: hidden;
+  text-indent: 100%;
+  transition: all 0.5s ease; /*allows slow fade in/out on hover*/
+}
+.icon-plus {
+  background-image: url('/src/images/plus-symbol-lg.png');
+}
+.icon-plus:hover {
+  background-image: url('/src/images/plus-symbol-y.png');
+}
+.icon-minus {
+  background-image: url('/src/images/minus-symbol-y.png');
+}
+/*
+.icon-minus:hover {
+  background-image: url('/src/images/minus-symbol-y.png');
+}
+*/
+
+/********************************************************************/
+/* footer popup*/
+
+/*footer popup top title row*/
+.divOpen .row-top, .divClosed .row-top { 
+  cursor: pointer;
+  background: #222 ;
+  box-shadow: 1px 0px 10px #333;
+  transition: all 0.5s ease; /*allows slow fade in/out on hover*/
+}
+.divOpen .row-top { 
+  border-top: 1px solid #DDCF1F;
+  box-shadow: 0px 0px 10px #DDCF1F;
+}
+.divClosed .row-top:hover { 
+  border-top: 1px solid #DDCF1F;
+  box-shadow: 0px 0px 10px #DDCF1F;
+}
+
+/* p Title + Copyright Text + Open/Close Icons */
+.divOpen .row-top p, .divClosed .row-top p { 
+  display: flex;
+  justify-content: flex-end; /* align items right */
+  align-items: center; /* center vertical*/
+  margin: 0;
+  padding: 10px 8px 10px 10px !important;
+}
+
+/* p Title */
+.divOpen .title, .divClosed .title { 
+  margin: 0;
+  padding: 0 5px 0 0;
+  color: #888;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.2em;
+  line-height: 0em;
+  font-weight: 555 !important;
+  transition: all 0.5s ease; /*allows slow fade in/out on hover*/
+}
+.divOpen .title { 
+  color: #DDCF1F !important;
+}
+.divOpen .title:hover, .divClosed .title:hover { 
+  color: #DDCF1F;
+}
+
+
+/*content wrapper*/
+
+/*CLOSED**********************************************************/
+.divWrapper {
+  visibility: hidden;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  height: 0;
+  width: 0;
+  background: #111;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #222, #111);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #222, #111); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  transition: visibility 0.5s, opacity 1s, transform 1s;
+}
+
+/*OPEN*************************************************************/
+.divOpen .divWrapper {
+  visibility: visible;
+  opacity: 1;
+  height: 100%;
+  width: 100%;
+  margin: 0; 
+  padding: 20px 20px 10px 20px;
+  display: grid;
+  grid-template-columns: 70% 30%; /*split into 3 cols*/
+  grid-template-rows: 1fr; /* 1 row high */
+  gap: 0px 10px; /* col spacing */
+  justify-content: center; /* horizontal*/
+  align-items: flex-start; /* vertical*/
+}
+
+/* col1: intro text, col2: social links, col1: disclaimer text*/
+.col1, .col2 {
+  margin: 0;
+  padding: 0;
+  filter: drop-shadow(0px 0px 1rem #000); /*adds suttle shadow behind elements to make them standout*/
+}
+
+/*intro text + disclaimer text*/
+.col1 { 
+  display: grid;
+  justify-content: center; /* horizontal*/
+  align-items: center; /* vertical*/
+}
+.col1 p {
+  margin: 0 0 10px 0;
+  padding: 0 20px 10px 5px;
+  color: #fff;
+  font-size: 1.1em;
+  line-height: 1.8em;
+  font-style: normal;
+  font-weight: none !important;
+}
+.col1 p a {
+  color: #DDCF1F;
+  font-size: 1.1em;
+  font-weight: 900;
+  text-transform: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+.col1 p a:hover {
+  text-decoration: underline;
+}
+
+/*social links*/
+.col2 ul {
+  display: flex ;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; /* horizontal*/
+  align-items: center; /* vertical*/
+  margin: 0;
+  padding: 5px 0 0 0;
+  list-style: none;
+}
+.col2 li {
+  margin: 0;
+  padding: 0px 10px 20px 10px;
+  text-transform: capitalize;
+}
+.col2 li a {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9em;
+  color:#DDCF1F;
+  font-weight: 900 !important;
+  text-decoration: none;
+}
+.col2 li a:any-hover {
+  text-decoration: underline;
+}
+/*icon images */
+.col2 li img {
+  width: 25px;
+  height: 25px;
+  margin: 0 5px 0 0;
+  padding: 0;
+  vertical-align: middle; /* WORKS*/
+}

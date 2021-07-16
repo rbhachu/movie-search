@@ -1,0 +1,104 @@
+@import url('./form.css');
+@import url('./toplinks.css');
+
+/*DEFAULT STATE****************************************************/
+header {
+  width: 100% !important;
+  /* horizontal & vertical align header contents; h1, form, top links */
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-bottom: 0px solid #333;
+}
+
+/* hide h1 heading text */
+.heading h1 span {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  font-size: 0;
+}
+
+/*HOMEPAGE STATE****************************************************/
+/*wrapper for h1, form and toplinks*/
+.heading {
+  visibility: visible;
+  opacity: 1;
+  position: inherit;
+  margin: 0;
+  padding: 0;
+  animation: fade-heading 2s linear;
+}
+@keyframes fade-heading {
+  0% { opacity: 0; visibility: hidden;}  
+  25% { opacity: 1; visibility: visible;}
+  100% { opacity: 1; visibility: visible;}
+}
+/*SEARCH STATE*************************************************/
+/* fix header to top of page */
+.heading.search {
+  z-index: 2 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0px;
+  padding: 0px;
+  background: #a73737;
+  border-bottom: 1px solid #333;
+}
+
+
+
+
+/*HOMEPAGE STATE****************************************************/
+.heading h1 {
+  visibility: visible;
+  opacity: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100% !important;
+  height: auto !important; 
+
+  margin: 15vh 0 0 0;
+  padding: 0 20px 0 20px; /*add spacing to top of logo on home page*/
+
+  transition: visibility 0.5s, opacity 1s, transform 1s;
+}
+/* show h1 heading image */
+.heading h1 img {
+  margin: 0;
+  padding: 0; /*add spacing to top of logo on home page*/
+  width: 100% !important;
+  height: 100% !important;
+  border: 0px solid #a73737;
+}
+/*
+@media only screen and (max-width: 500px) {
+  .heading h1 img {
+    visibility: visible;
+    opacity: 1;
+    margin: 15vh 0 0 0;
+    padding: 0; 
+    max-width: 350px !important;
+    max-height: 73px !important;
+    transition: visibility 0.5s, opacity 1s, transform 1s;
+  }
+}
+*/
+
+/*SEARCH STATE*************************************************/
+.heading.search h1 img, .heading.search h1 {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+}

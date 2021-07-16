@@ -1,0 +1,202 @@
+/*SEARCH STATE*************************************************/
+/*container for responsive css flex card layout*/
+.container {
+  z-index: auto;
+  perspective: 1000px; /*flip*/
+
+  opacity: 1;
+  visibility: visible;
+
+  margin: 0;
+  padding: 0;
+
+  color:var(--textcolor6) !important;
+
+  /*animation fade in/out transtion*/
+  transition: visibility 1s, opacity 1s, transform 1s; 
+  animation: fade-container 1s linear;
+}
+@keyframes fade-container {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
+/*SEARCH RESULTS (LOOP)*************************************************/
+.container.update {
+  opacity: 0;
+  visibility: hidden !important;
+}
+
+/*SEARCH STATE*************************************************/
+/* responsive flex card layout */ 
+.card-list { /* DONT NEED THIS???? integrate with container??? */
+  display: flex;
+  flex-direction :row;
+  flex-wrap: wrap;
+  justify-content:space-evenly !important;
+  align-items: center !important;
+  gap: 20px 20px; /* spacing around cards*/
+
+  /*width: 100% !important;*/
+}
+
+/* CARDS */ 
+
+.card-front, .card-back {
+  max-width: 460px !important;
+  max-height: 278px !important;
+  z-index: 1;
+}
+
+/* card front */
+.card-front {
+  opacity: 0.9; /*slightly dimmed on default*/
+
+  display: flex;
+  justify-content: center !important;
+  align-items: flex-start !important;
+
+  position: relative;
+  top: 0px;
+  left: 0px; 
+
+  margin:0;
+  padding:0;
+
+  backface-visibility: hidden !important; 
+  transform: translateX(0%) rotateY(0deg);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center center;
+  transform-style: preserve-3D;
+  
+  /*transition: all 0.5s ease-in-out;*/ /*allows slow fade in/out on hover*/
+
+  filter: drop-shadow(1px 1px 0.5rem var(--dropshadow2));
+}
+/* card back */
+.card-back {
+  position: absolute; 
+  top: 0px;
+  left: 0px; 
+
+  backface-visibility: hidden !important; 
+  transform: translateX(0%) rotateY(180deg);
+}
+/* hightlight card on hover */
+.card-front:hover, .card-back:hover {  
+  opacity: 1; /* full opacity on hover to give vibrance to image on hover*/
+  cursor: pointer;
+  filter: drop-shadow(2px 2px 1rem var(--dropshadow1));
+}
+/* Movie Poster */
+.card-image {
+  /*    
+  width: fit-content !important; 
+  width: inherit !important;
+  width: max-content !important;
+  */
+  width: auto !important;
+
+
+
+  border-radius: 5px 0px 0px 5px !important; /*no borders to left side*/
+  border-top: 1px solid var(--bordercolor3);
+  border-left: 1px solid var(--bordercolor3);
+  border-bottom: 1px solid var(--bordercolor3);
+
+  /*remove space under image, so dont need bg color???*/
+  background: var(--backgroundcolorsetA1);
+  background: var(--backgroundcolorsetA2);
+  background: var(--backgroundcolorsetA3);
+}
+
+/* wrapper div for title, date, rating and description */
+.card-content-front, .card-content-back {
+  margin: 0; /* adds blank space to right, so overflow doesnt go to edge for long title text*/
+  padding: 10px 10px 10px 15px;
+
+  width: 100% !important;
+  height: 100% !important;
+
+}
+.card-content-front {
+  overflow: hidden !important;
+
+  background: var(--backgroundcolorsetA1);
+  background: var(--backgroundcolorsetA2);
+  background: var(--backgroundcolorsetA3);
+
+  border-radius: 0px 5px 5px 0px !important; /*no borders to left side*/
+  border-top: 1px solid var(--bordercolor3);
+  border-right: 1px solid var(--bordercolor3);
+  border-bottom: 1px solid var(--bordercolor3);
+}
+.card-content-back {
+  overflow: auto !important;
+
+  background: var(--backgroundcolorsetA1);
+  background: var(--backgroundcolorsetA2);
+  background: var(--backgroundcolorsetA3);
+
+  border-radius: 5px;
+  border: 5px solid var(--bordercolor2);
+}
+
+/* Movie Title h3 */
+.card-title {
+  font-family: var(--fontfamily2);
+  overflow: hidden !important;
+}
+  /* Movie Date + Movie Rating Star Img + Rating */
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+  /* Movie Date */
+  .card-date, .card-rating {
+    color: var(--textcolor3);
+    font-weight: normal;
+  }
+  /* Movie Rating Star Img */
+  .card-rating img {
+    display: inline-block !important;
+    margin-right: 4px; /*spacing from rating value text*/
+    vertical-align: top !important; /*align with rating text*/
+  }
+.card-content-front .card-desc, .card-content-back .card-desc {
+  color: var(--textcolor3);
+}
+/*scroll styling for overflow text from description*/
+.card-content-back::-webkit-scrollbar {
+  width: 0.5em !important;
+}
+.card-content-back::-webkit-scrollbar-thumb {
+  background-color: var(--backgroundcolor1) !important;
+}
+/* more info / go back buttons below description text for card flip */
+.more-info, .go-back {
+  /* hide text */
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  
+  background-image: url('/src/images/hand-point-right-solid-hover.png');
+  background-repeat: no-repeat;
+  background-position: bottom 0px right 0px;
+  background-size: 18px 18px;
+}
+.more-info {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  padding: 5px 0 0 0;
+}
+.go-back {
+  display: grid;
+  justify-content: right;
+  margin-right: 5px;
+  padding: 10px 0 0 0;
+}
+.more-info, .more-info:hover, .go-back, .go-back:hover {
+  cursor: pointer;
+}

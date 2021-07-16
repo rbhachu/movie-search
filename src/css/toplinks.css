@@ -1,0 +1,99 @@
+/* base styles */
+
+/*HOMEPAGE STATE****************************************************/
+.top-links {
+  margin: 0;
+  padding: 10px 5px 5px 5px;
+  display: flex ;
+  justify-content: center;
+  align-items: center;  
+}
+
+.top-links h3 {
+  margin: 0;
+  padding: 0 10px 0 0;
+
+  color: #DDCF1F;
+  font-family: var(--fontfamily1);
+  font-size: 1.1em !important; 
+  font-weight: var(--boldlevel3);
+  text-transform: uppercase;
+  text-align: center;
+
+  filter: drop-shadow(1px 1px 0.1rem #000);
+}
+
+.top-links ul {
+  margin: 0;
+  padding: 5px 7.5px 5px 0;
+
+  display: flex ;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px 0px;
+  justify-content: space-evenly; /* horizontal*/
+  align-items: center; /* vertical*/
+
+  background-color: #000;
+  border: 1px solid #111;
+  border-radius: 5px;
+
+  filter: drop-shadow(1px 1px 0.1rem #000);
+}
+
+.top-links li {
+  margin: 0;
+  padding: 0 0 0 10px;
+
+  color: #888;
+
+  font-family: var(--fontfamily1);
+  font-size: 1em !important; 
+  font-weight: var(--boldlevel3);
+  text-transform: uppercase;
+  text-align: center;
+
+  transition: all 0.5s ease-in-out; /*allows slow fade in/out on hover*/
+}
+.top-links li:hover {
+  color: var(--textcolor4) !important;
+  text-decoration: none;
+  cursor: pointer;
+} 
+/* if search matches with a top link disable its click and highlight */
+.top-links li.match {
+  color: var(--textcolor4) !important;
+  text-decoration: none !important;
+  cursor: default !important;
+}
+
+
+
+/*SEARCH STATE*************************************************/
+.search .top-links {
+  margin: 0 !important;
+  padding: 7.5px 5px 0px 5px;
+
+  color: #690d0d;
+
+  filter: none;
+  border: none;
+  background-color: transparent;
+}
+.search .top-links h3 {
+  font-size: 1em !important; 
+  padding: 0;
+  text-align: center;
+}
+.search .top-links ul {
+  padding: 0;
+  border: none;
+  filter: none;
+  justify-content: center; /* horizontal*/
+  gap: 5px 0px;
+  background-color: transparent;
+}
+.search .top-links li {
+  color: var(--textcolor3);
+  filter: drop-shadow(1px 1px 0.1rem rgb(49, 2, 2));
+}

@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); /*used for movie title of cards*/
+
+/*SEARCH STATE*************************************************/
+/*container for responsive css flex card layout*/
+.container {
+  z-index: auto;
+  perspective: 1000px; /*flip*/
+  opacity: 1;
+  visibility: visible;
+
+ max-width: 95vw; 
+
+  margin: 0;
+  padding: 40px 20px 70px 20px;
+  /*animation fade in/out transtion*/
+  transition: visibility 1s, opacity 1s, transform 1s; 
+  animation: fade-container 1s linear;
+}
+@keyframes fade-container {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
+/*SEARCH RESULTS (LOOP)*************************************************/
+.container.update {
+  opacity: 0;
+  visibility: hidden !important;
+}
+
+
+/*SEARCH STATE*************************************************/
+/* responsive flex card layout */ 
+.card-list {
+  display: flex;
+  flex-direction :row;
+  flex-wrap: wrap;
+  justify-content: space-evenly !important;
+  gap: 20px 20px; /* spacing around cards*/
+  width: 100% !important;
+  height: auto;
+  padding-top: 0px; /* spacing from top fixed header search form */
+}
+
+/* CARDS */ 
+/* card front */
+.card-front {
+  z-index: 1;
+  opacity: 0.9; /*slightly dimmed on default*/
+  display: flex;
+  position: relative;
+  top: 0px;
+  left: 0px; 
+  max-width: 450px !important; /*fixed width*/
+  height: 100% !important;
+  overflow: hidden !important; /* hide content overspill fix */
+  margin: 0;  
+  padding: 0;
+  background: #000;
+  background: linear-gradient(90deg, rgba(10,9,9,1) 100%, rgba(108,87,87,1) 100%);
+  backface-visibility: hidden !important; 
+  transform: translateX(0%) rotateY(0deg);
+  transition: transform 0.5s ease;
+  transform-origin: center center;
+  transform-style: preserve-3D;
+  filter: drop-shadow(2px 2px 2rem #000);
+  border-radius: 5px;
+}
+/* card back */
+.card-back {
+  z-index: 1;
+  position: absolute; 
+  top: 0px;
+  left: 0px; 
+  max-width: 450px !important; /*fixed width*/
+  height: 100% !important;
+  overflow: hidden !important; /* hide content overspill fix */
+  backface-visibility: hidden !important; 
+  transform: translateX(0%) rotateY(180deg);
+}
+/* hightlight card on hover */
+.card-front:hover, .card-back:hover {
+  filter: drop-shadow(2px 2px 1rem #DDCF1F);
+  cursor: pointer;
+  opacity: 1; /* full opacity on hover to give vibrance to image on hover*/
+}
+/* wrapper div for title, date, rating and description */
+.card-content-front {
+  max-height: 278px !important; /*image height*/
+  width: 100% !important; /* ensure if no description content div still display full width */
+  overflow: hidden !important; /* hide content overspill fix */
+  margin: 0 15px 0 0; /* adds blank space to right, so overflow doesnt go to edge for long title text*/
+  padding: 15px 0 0 0;
+}
+.card-content-back {
+  max-height: 278px !important; /*image height*/
+  width: 100% !important; /* ensure if no description content div still display full width */
+  overflow: hidden !important; /* hide content overspill fix */
+  margin: 0;  
+  padding: 15px 10px 15px 15px;
+  border-radius: 5px;
+  border: 5px solid #ccc;
+  background: #ED213A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+/* Card Details wrapper front/back */
+.card-desc-front {
+  margin: 0;  
+  padding: 15px 0 0 0;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  color: #fff;
+}
+.card-desc-back {
+  margin: 0 0 30px 0;  /*buffer margin for go back hand button from desc text*/
+  padding: 15px 0 0 0;
+  font-size: 1em;
+  line-height: 1.4em;
+  color: #fff;
+}
+/* Movie Poster */
+.card-image {
+  margin: 0 20px 0 0;
+  padding: 0;
+  vertical-align:top !important;
+  /*align-self: center;*/ /* horizontal squash image fix*/
+  border-radius: 5px 0px 0px 5px; /*no borders to left side*/
+}
+/* Movie Title h3 */
+.card-title-front, .card-title-back {
+  margin: 0;  
+  padding: 0 0 10px 0;
+  overflow: hidden !important; /* hide content overspill fix */
+  font-family: 'Bebas Neue', cursive;
+  font-weight: bold;
+  color:#FFF;
+  text-align: left;
+}
+.card-title-front {
+  font-size: 3.4em;
+  line-height: 3.4em;
+}
+.card-title-back {
+  font-size: 2.5em;
+  line-height: 2.5em;
+}
+/* Movie Date */
+.card-date, .card-rating {
+  font-size: 1.2em;
+  font-weight: normal;
+  color: #888;
+}
+/* Rating */
+.card-rating {
+  float: right;
+}
+/* Movie Rating Star Img */
+.card-rating img {
+  width: 17px;
+  height: 17px;
+  padding-right: 5px;
+  vertical-align:top !important; 
+}
+/* more info / go back buttons below description text for card flip */
+.more-info, .go-back {
+  background-image: url('/src/images/hand-point-right-solid.png');
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: all 0.5s ease; /*allows slow fade in/out on hover*/
+}
+.more-info:hover, .go-back:hover {
+  background-image: url('/src/images/hand-point-right-solid-hover.png');
+}
+.more-info, .more-info:hover, .go-back, .go-back:hover {
+  position:absolute;
+  right:20px;
+  bottom:15px;
+  
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}
