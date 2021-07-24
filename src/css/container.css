@@ -6,13 +6,13 @@
   visibility: visible;
   margin: 0;
   padding: 0;
-  color:var(--textcolor6) !important;
+  color:var(--textcolor6);
 }
 
 /*SEARCH RESULTS (LOOP)*************************************************/
 .container.update {
   opacity: 0;
-  visibility: hidden !important;
+  visibility: hidden;
 }
 
 /*SEARCH STATE*************************************************/
@@ -24,34 +24,23 @@
   justify-content: center;
   align-items:flex-start;
   align-content: space-between;
-  /*width: 100% !important;*/
 }
 
 
 /* CARD FLIP */ 
-.card-front {
+.card-front, .card-back {
   z-index: 1;
   transition: transform 0.5s ease-in-out;
   transform-origin: center center;
   transform-style: preserve-3D;
-
-  backface-visibility: hidden !important; 
+  backface-visibility: hidden; 
+}
+.card-front {
   transform: translateX(0%) rotateY(0deg);
 }
-
 .card-back {
-  z-index: 1;
-  transition: transform 0.5s ease-in-out;
-  transform-origin: center center;
-  transform-style: preserve-3D;
-
-  backface-visibility: hidden !important; 
   transform: translateX(0%) rotateY(360deg);
 }
-
-
-
-
 
 
 /*CARDS*************************************************/
@@ -61,13 +50,8 @@
   margin: 20px;
   padding: 0;
   border: 0px solid blue;
-  /*word-break: break-all;*/ /*breaks long words*/
 }
-.card-front  {
-  max-width: 460px;
-  height: auto;
-}
-.card-back  {
+.card-front, .card-back  {
   max-width: 460px;
   height: auto;
 }
@@ -81,74 +65,49 @@
 }
 
 
-
-
-
-
-
-
-
 .card-front-wrapper {
   display: flex;
   flex-direction: row;
-
-  flex: 1 auto !important;
+  flex: 1 auto;
   margin: 0;
   padding: 0;
 
-  background: #000;
+  background: var(--backgroundcolorsetA1);
+  background: var(--backgroundcolorsetA2);
+  background: var(--backgroundcolorsetA3);
 
+  border-radius: 0px 5px 5px 0px; /*no borders to left side*/
+  border-top: 1px solid var(--bordercolor3);
+  border-right: 1px solid var(--bordercolor3);
+  border-bottom: 1px solid var(--bordercolor3);
+  white-space: pre-line; /*pass html*/
 }
 
 
 /* Movie Poster */
-.card-image {
+.card-image, .card-image img {
   max-width: 185px;
   max-height: 278px;
   margin: 0;
   padding: 0;
-  border: 0px solid green;
 }
-.card-image img {
-  max-width: 185px;
-  max-height: 278px;
-  
-  margin: 0;
-  padding: 0;
-}
-
 
 /* wrapper div for title, date, rating and description */
 .card-content-front, .card-content-back {
   margin: 0; /* adds blank space to right, so overflow doesnt go to edge for long title text*/
   padding: 10px 10px 10px 15px;
+  white-space: pre-line; /*pass html*/
   }
   
   /* wrapper div for title, date, rating and description */
   .card-content-front {
-    border: 0px solid yellow;
-    /*
-    height: 100% !important;
-    height: fit-content;
-    */
-    overflow: hidden !important;
-  
-    /*
-    background: var(--backgroundcolorsetA1);
-    background: var(--backgroundcolorsetA2);
-    background: var(--backgroundcolorsetA3);
-    */
-    border-radius: 0px 5px 5px 0px !important; /*no borders to left side*/
-    border-top: 1px solid var(--bordercolor3);
-    border-right: 1px solid var(--bordercolor3);
-    border-bottom: 1px solid var(--bordercolor3);
+    overflow: hidden;
   }
   
 .card-content-back {
-    height: 100% !important;
-    max-width: 100% !important;
-    overflow: visible !important;
-  white-space: pre-line; /*pass html*/
+    height: 100%;
+    max-width: 100%;
+    overflow: visible;
     background: teal;
     border-radius: 5px;
     border: 5px solid var(--bordercolor2);
@@ -158,7 +117,7 @@
   /* Movie Title h3 */
   .card-title {
     font-family: var(--fontfamily2);
-    overflow: hidden !important;
+    overflow: hidden;
   }
     /* Movie Date + Movie Rating Star Img + Rating */
   .card-info {
@@ -178,27 +137,3 @@
   .card-content-front .card-desc, .card-content-back .card-desc {
     color: var(--textcolor6);
   }
-  
-  /* more info / go back buttons below description text for card flip */
-  .more-info, .go-back {
-    color: var(--textcolor3)
-  }
-  .more-info {
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
-    padding: 5px 0 0 0;
-  }
-  .go-back {
-    display: grid;
-    justify-content: right;
-    margin-right: 5px;
-    padding: 10px 0 0 0;
-  }
-  .more-info, .more-info:hover, .go-back, .go-back:hover {
-    cursor: pointer;
-  }
-  .more-info:hover, .go-back:hover {
-    color: var(--textcolor4)
-  }
-

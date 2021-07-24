@@ -1,6 +1,6 @@
 
 /*************************************************************************/
-/*
+/* CARD/IMAGE SIZES
 75% 345 x 208.5 - 365
 .......................
 100% 460 x 278 - 480
@@ -19,9 +19,9 @@
     font-size: 1.3em;
   }
   .card-image img {
-    width: 100px !important;
-    height:100% !important;
-    object-fit:inherit !important;
+    width: 100px;
+    height:100%;
+    object-fit:inherit;
   }
   .card-content-front .card-title,  .card-content-back .card-title {
     line-height: 1em;
@@ -84,9 +84,10 @@
   .card-content-front .card-desc, .card-content-back .card-desc {
     line-height: 1.3em;
   }
+
 }
 /* size 4  */ /*480*/
-@media screen and (min-width: 480px){
+@media screen and (min-width: 490px){
   .error span, .cursor-pointer span {
     font-size: 1.4em;
   }
@@ -105,14 +106,23 @@
   .card-content-front .card-desc, .card-content-back .card-desc {
     line-height: 1.3em;
   }
+  .card-back, .card-front  {
+    width: 100vw;
+  }
 }  
 
 @media screen and (min-width: 522px) {
-  .card-back  {
+  .card-back, .card-front  {
     width: 100vw;
   }
   .card-content-back {
     min-height: 278px;
+  }
+  .card-image img {
+    width: auto;
+    height: 278px;
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -121,8 +131,8 @@
   form label  {
     opacity: 0;
     display: hidden;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
     height: 0;
     width: 0;
   }

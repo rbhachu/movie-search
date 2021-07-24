@@ -26,7 +26,7 @@
   border: 0px solid rgb(122, 221, 9);
 
   position: relative;
-  top: -50px !important;
+  top: -50px;
   left: 0;
 }
 .loading img {

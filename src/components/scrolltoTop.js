@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-//import Uparrow from '../images/arrow-circle-up-solid-b.png'; // import image
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 export default function ScrollToTop() {
@@ -34,7 +33,6 @@ export default function ScrollToTop() {
 
   return (
         <div className={ isVisible ? 'cursor-pointer' : 'cursor-pointer hide' }>
-          {/* <img onClick={scrollToTop} src={Uparrow} alt="Back to Top" title="Back to Top" /> */}
           <span onClick={scrollToTop} alt="Back to Top" title="Back to Top"><FontAwesomeIcon icon={faArrowUp} /></span>
         </div>
       )

@@ -5,7 +5,6 @@ import LoadingAnimation from '../images/Preloader.svg'; // import image
 import SearchMovies from './searchMovies'; // 
 import ScrollToTop from './scrolltoTop'
 import BurgerMenu from './burgerMenu'; // import burgermenu
-//import Footer from './Footer'; // import footer
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -23,8 +22,7 @@ export default function Home () { // url coming from searchForm as props
     // console.log(`Total Pages: ${fetchdatapages}`) // total pages
     // console.log(`Total Results: ${fetchdatatotal}`) // total results
 
-
-
+    
     // function handleSubmit(e) {    
     function handleSubmit(e) {
         e.preventDefault(); // stop page refresh on submit  
@@ -52,14 +50,6 @@ export default function Home () { // url coming from searchForm as props
             const query = e.target.textContent;
             setQuery(e.target.textContent);
             setUrl(`https://api.themoviedb.org/4/search/movie?api_key=${process.env.REACT_APP_API_PATH}&language=en-US&page=${page}&include_adult=false&sort_by=release_date.desc&query=${query.replace(/\s/g, '+')}`)   
-        /*
-        // if search empty
-        } else if ( (!query && !query.length > 0) ) {
-        ///setUrl('adads');
-        //setUrl(`https://api.themoviedb.org/4/search/movie?api_key=${process.env.REACT_APP_API_PATH}&language=en-US&page=${page}&include_adult=false&sort_by=release_date.desc&query=`)
-        setContainerClass(false); // hide container
-        setFormError('Please enter a Movie to Search.'); // alert if form empty
-        */
         // if search from form input
         } else { 
             //setContainerClass(true); // show container
@@ -70,7 +60,7 @@ export default function Home () { // url coming from searchForm as props
     };
 
     // Top Movie Links
-    const topMovies = ['Transformers', 'Batman', 'Spider Man', 'Tron Legacy', 'Kill Bill', 'Star Wars'];
+    const topMovies = ['Superman', 'Batman', 'Spider Man', 'Tron Legacy', 'Kill Bill', 'Star Wars', 'Terminator'];
     let keyval = 1;
     const topMovieLinks = topMovies.map((movielink) =>
         <li key={keyval++} onClick={handleSubmit} className={query.toLowerCase() === movielink.toLowerCase() ? 'match' : 'nomatch'}>{movielink}</li>
@@ -90,15 +80,6 @@ export default function Home () { // url coming from searchForm as props
 
     // close burger menu
     function closeBurger () {
-        //create function for close
-        //alert("test");
-        //const scrollToTop = () => {
-            //window.scrollTo({
-            //  top: 0,
-            //  behavior: "smooth"
-        // });
-            //window.scrollTo(0);
-        //  };
         setDivClass(true);
         document.body.style.overflow = 'visible';
     }
@@ -114,14 +95,27 @@ export default function Home () { // url coming from searchForm as props
                 <div>
                     <h1>
                         <span className="hide-text">Movie Search</span>
-                        <img src={imageHeaderLogo} width="450" height="94" alt="Movie Search" title="Movie Search" />
+                        <img 
+                            src={imageHeaderLogo} 
+                            width="450" 
+                            height="94" 
+                            alt="Movie Search" 
+                            title="Movie Search" 
+                        />
                     </h1>             
                 </div>
 
 
                 <div className="input-wrapper">
 
-                    <span aria-label="Menu" title="Menu" className="icon-burger-form" onClick={setToggle}><FontAwesomeIcon icon={faBars} /></span>
+                    <span 
+                        aria-label="Menu" 
+                        title="Menu" 
+                        className="icon-burger-form" 
+                        onClick={setToggle}><FontAwesomeIcon 
+                        icon={faBars} 
+                    />
+                    </span>
 
                     <form name="search" onSubmit={handleSubmit}>
                     
@@ -137,7 +131,6 @@ export default function Home () { // url coming from searchForm as props
                             onClick={(e) => setQuery('')} // clear form on click
                             placeholder="enter movie name"
                             title="enter movie name"
-                            //required
                         />
                         <button className="button" type="submit" title="Search">
                             <FontAwesomeIcon icon={faSearch} />

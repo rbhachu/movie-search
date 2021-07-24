@@ -1,13 +1,12 @@
 import { useState } from 'react';
-//import IconStar from '../images/star-solid-y.png'; // import image
 import PlaceHolder from '../images/image-placeholder.png'; // import image
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function MovieCard({ movie }) { // import movie props
 
-    // temp hack to ensure back card full width if text short
-    const filler = `\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0`;
+    // temp hack to ensure cards show full width if no movie description
+    const filler = `\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0\u00A0 \u00A0`;
 
     // movie title short char limit 26
     const movieTitle = movie.title ? movie.title : 'Title not found'; // check if empty
@@ -23,7 +22,7 @@ export default function MovieCard({ movie }) { // import movie props
     const movieDescription = movie.overview ? movie.overview  : `Description not found` ; // check if empty
     const movieDescriptionCheck = movieDescription.length < 80 ? `${movieDescription} ${filler}` : movieDescription; // add filler text if description too short
 
-    const movieDescriptionShort = movieDescription.length > 106 ? `${movieDescription.substring(0, 106)}...` : movieDescription; // trim length if exceeds max allowed val + add '...' to end
+    const movieDescriptionShort = movieDescription.length > 106 ? `${movieDescription.substring(0, 106)}...` : movieDescriptionCheck; // trim length if exceeds max allowed val + add '...' to end
 
     // const moviePoster = ((movie.poster_path) ? `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}` : PlaceHolder) // v3
     const moviePoster = ((movie.poster_path) ? `https://image.tmdb.org/t/p/w185/${movie.poster_path}` : PlaceHolder) // v4
@@ -43,9 +42,7 @@ export default function MovieCard({ movie }) { // import movie props
             { cardClass ? 
 
                 (<div className="card-front">
-
                     <div className="card-front-wrapper">
-
                         <div className="card-image">
                             <img
                                 // src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${moviePoster}`} // old static image path
@@ -56,7 +53,6 @@ export default function MovieCard({ movie }) { // import movie props
                                 height="278"
                             />
                         </div>
-
                         <div className="card-content-front">
                             <h3 className="card-title">{movieTitleShort}</h3>
                             <div className="card-info">
@@ -69,12 +65,9 @@ export default function MovieCard({ movie }) { // import movie props
                             </div>
                             <p className="card-desc">
                                 {movieDescriptionShort}
-                               {/* <br />{ movieDescriptionShort.length > 106 ? (<span title="More Details" className="more-info"><FontAwesomeIcon icon={faHandPointRight}  /></span>) : '' } */}
                             </p>
                         </div>
-
                     </div>
-
                 </div>)
 
             :
@@ -91,7 +84,6 @@ export default function MovieCard({ movie }) { // import movie props
                         </div>
                         <p className="card-desc">
                             {movieDescriptionCheck}
-                            {/*<br /><span title="Go Back" className="go-back">Go Back</span>*/}
                         </p>
                     </div>
                 </div>)

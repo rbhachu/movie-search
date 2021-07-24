@@ -13,7 +13,7 @@ label {
   margin: 0 auto;
 
   display: flex;
-  justify-content: center !important; /*align h centre*/
+  justify-content: center; /*align h centre*/
   align-items: center; /*align v centre*/
 }
 
@@ -30,7 +30,7 @@ form {
 
   width: 100%;
   display: flex;
-  justify-content: center !important; /*align h centre*/
+  justify-content: center; /*align h centre*/
   align-items: center; /*align v centre*/
 
 
@@ -96,15 +96,15 @@ form input {
   margin: 0px 0 0 0px;
   padding: 5px 5px 5px 10px; /*inside input padding*/
 
-  color: var(--textcolor2) !important;   
+  color: var(--textcolor2);   
   font-size: 1.4em; 
   font-weight: var(--boldlevel3);
   text-align: left;
   vertical-align: middle;
 
-  border: 0.2em solid var(--bordercolor6) !important;
+  border: 0.2em solid var(--bordercolor6);
   border-radius: 2px;
-  background-image: none !important;  
+  background-image: none;  
   outline: none; /* hides outline on selecting input */
 
   transition: all 0.5s ease-in-out; /*allows slow fade in/out on hover*/
@@ -112,14 +112,14 @@ form input {
 /* search form input hover action */
 form input:hover, form input:focus, form input:active, form input:link {  
   background-color: var(--backgroundcolor5);
-  background-image: none !important;  
-  border: 0.2em solid var(--bordercolor5) !important;
+  background-image: none;  
+  border: 0.2em solid var(--bordercolor5);
 }
 /*fix to ensure search input text color is consistent */
 form input:-webkit-autofill,
 form input:-webkit-autofill:hover, 
 form input:-webkit-autofill:focus {
-  -webkit-text-fill-color: var(--textcolor2) !important;
+  -webkit-text-fill-color: var(--textcolor2);
 }
 /* search form input placeholder default text color */
 form input::placeholder{
@@ -136,10 +136,10 @@ form button, form button:hover {
   border: none;
   outline: none;
   cursor: pointer;
-  background-position: center !important;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: 25px 25px;
-  background-color: transparent !important;
+  background-color: transparent;
 }
 form button {
   transition: all 0.5s ease-in-out; /*allows slow fade in/out on hover*/

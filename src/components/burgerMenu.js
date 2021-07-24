@@ -1,8 +1,8 @@
 //import { useState } from 'react';
 import imageHeaderLogo from '../images/logo.png' // header logo
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGithub, faLinkedin, faStackOverflow, faBlogger} from "@fortawesome/free-brands-svg-icons";
-import { faHashtag, faWindowClose, faHome, faStar  } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedin, faStackOverflow, faBlogger } from "@fortawesome/free-brands-svg-icons";
+import { faHashtag, faWindowClose, faHome, faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function BurgerMenu ({ topMovieLinks, setToggle, closeBurger }) { // url coming from searchForm as props
 
@@ -10,21 +10,42 @@ export default function BurgerMenu ({ topMovieLinks, setToggle, closeBurger }) {
         <>
             <div className="burgermenu-wrapper">
 
-
                 <div className="burgermenu">
 
                     <div>
                         <div className="wrap">
-                            <img className="burger-logo" src={imageHeaderLogo} width="225" height="47" alt="Movie Search" title="Movie Search" />
-                            <span aria-label="close menu" title="close menu" onClick={closeBurger} className="icon-close"><FontAwesomeIcon icon={faWindowClose} /></span>
+                            <img 
+                                className="burger-logo" 
+                                src={imageHeaderLogo} 
+                                width="225" 
+                                height="47" 
+                                alt="Movie Search" 
+                                title="Movie Search" 
+                            />
+                            <span 
+                                aria-label="close menu" 
+                                title="close menu" 
+                                onClick={closeBurger} 
+                                className="icon-close"
+                            >
+                                <FontAwesomeIcon icon={faWindowClose} />
+                            </span>
                         </div>
 
                         <div>
-                        <h3><a onClick={setToggle} href="/"><FontAwesomeIcon icon={faHome} className="icon-burger" />Home</a></h3>
-                        <h3><FontAwesomeIcon icon={faStar} className="icon-burger" />Top Searches</h3>
-                            <ul className="top-links">
-                                {topMovieLinks}
-                            </ul>
+                            <h3>
+                                <a onClick={setToggle} href="/">
+                                    <FontAwesomeIcon icon={faHome} className="icon-burger" />
+                                    Home
+                                </a>
+                            </h3>
+                            <h3>
+                                <FontAwesomeIcon icon={faStar} className="icon-burger" />
+                                Top Searches
+                            </h3>
+                                <ul className="top-links">
+                                    {topMovieLinks}
+                                </ul>
                         </div>
                     </div>
 

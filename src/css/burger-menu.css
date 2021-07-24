@@ -1,8 +1,8 @@
 /*popout*/
 .toggle-hide {
     visibility: hidden;
-    height: 0 !important;
-    width: 0 !important;
+    height: 0;
+    width: 0;
 
     position: absolute;
     top: 0;
@@ -11,8 +11,8 @@
 }
 .toggle-show {
     visibility: visible;
-    height: 100vh !important;
-    width: 100vw !important;
+    height: 100vh;
+    width: 100vw;
 
     position: absolute;
     top: 0;
@@ -20,25 +20,25 @@
     transition: width 0.5s, visibility 2s, left 0.5s, transform 2s;
 
     /* fade in / out*/
-    z-index: 3 !important;
+    z-index: 3;
 }
 
 /*shadow bg layer*/
 .burgermenu-wrapper {
     margin: 0;
     padding: 0;
-    width: 100vw !important;
-    height: 100vh !important;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 3 !important;
+    z-index: 3;
   }
 
 
 .burgermenu {
     padding: 20px;
-    height: 100vh !important;
+    height: 100vh;
     width: 50vw;
-    z-index: 4 !important;
+    z-index: 4;
     background-color: var(--backgroundcolor1);
     display: grid;
     align-content: space-between;
@@ -46,7 +46,7 @@
 
 /*wrappper for top logo and close button*/
 .wrap {
-    width: 100% !important;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     margin: 0 0 0px 0;
@@ -63,22 +63,22 @@
 
 
 .burgermenu h3 {
-    font-size: 1.2em !important; 
+    font-size: 1.2em; 
     text-transform: uppercase;
     margin: 50px 0 10px 0;
     padding: 10px 0 0 0;
     border-top: 1px solid #000;
 }
 .burgermenu h3, .burgermenu h3 a {
-    color: var(--textcolor1) !important;
+    color: var(--textcolor1);
 }
 .burgermenu h3 a:hover {
-    color: var(--textcolor2) !important;
-    text-decoration: underline !important;
+    color: var(--textcolor2);
+    text-decoration: underline;
 }
 /*h3 icons in burger menu */
 .icon-burger {
-    color: var(--textcolor2) !important;
+    color: var(--textcolor2);
     font-size: 1em;
     margin: 0 5px 0 0;
 }
@@ -94,8 +94,8 @@
 .top-links li {
     margin: 0 0 0 15px;
     padding: 5px 0 10px 0px;
-    color: var(--textcolor2) !important;
-    font-size: 1.1em !important; 
+    color: var(--textcolor2);
+    font-size: 1.1em; 
     font-weight: var(--boldlevel3);
     text-transform: uppercase;
     text-align: left;
@@ -108,17 +108,17 @@ ul.top-links > li:before {
   }
   
 .top-links li:hover {
-    color: var(--textcolor2) !important;
-    text-decoration: underline !important;
+    color: var(--textcolor2);
+    text-decoration: underline;
 
     cursor: pointer;
 } 
 /* if search matches with a top link disable its click and highlight */
 .top-links li.match {
-    color: var(--textcolor2) !important;
+    color: var(--textcolor2);
     text-decoration: underline;
 
-    cursor: default !important;
+    cursor: default;
 }
   
 /*FOOTER*/
