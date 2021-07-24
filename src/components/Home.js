@@ -107,7 +107,7 @@ export default function Home () { // url coming from searchForm as props
 
     return (
 
-        <div class="wrapper">
+        <div className="wrapper">
 
             <header className={ !url ? 'home' : 'search' }>
 
