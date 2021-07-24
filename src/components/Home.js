@@ -5,7 +5,7 @@ import LoadingAnimation from '../images/Preloader.svg'; // import image
 import SearchMovies from './searchMovies'; // 
 import ScrollToTop from './scrolltoTop'
 import BurgerMenu from './burgerMenu'; // import burgermenu
-import Footer from './Footer'; // import footer
+//import Footer from './Footer'; // import footer
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
 

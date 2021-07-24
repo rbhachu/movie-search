@@ -2,7 +2,7 @@ import { useState } from 'react';
 //import IconStar from '../images/star-solid-y.png'; // import image
 import PlaceHolder from '../images/image-placeholder.png'; // import image
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faStar, faHandPointRight } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function MovieCard({ movie }) { // import movie props
 

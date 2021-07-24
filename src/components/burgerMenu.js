@@ -1,8 +1,8 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 import imageHeaderLogo from '../images/logo.png' // header logo
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faLinkedin, faStackOverflow, faBlogger} from "@fortawesome/free-brands-svg-icons";
-import { faHashtag, faWindowClose, faHome, faSearch, faStar  } from "@fortawesome/free-solid-svg-icons";
+import { faHashtag, faWindowClose, faHome, faStar  } from "@fortawesome/free-solid-svg-icons";
 
 export default function BurgerMenu ({ topMovieLinks, setToggle, closeBurger }) { // url coming from searchForm as props
 
