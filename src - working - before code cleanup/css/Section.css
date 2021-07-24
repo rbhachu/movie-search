@@ -10,9 +10,13 @@
     display: grid; /* center content v & h*/
     align-items: center;
     justify-content: center;
-    width: 100% !important;
-    margin: 100px 0 100px 0; /* spacing for fixed header search form */ 
-    padding: 0;
+
+    /*width: 100% !important;*/
+ 
+    /*margin: 130px 0 100px 0; */
+    margin: 20px 0 10px 0; /* spacing from top fixed header/search form */ 
+    padding: 0px 10px 60px 10px; 
+
     z-index: 1;
     visibility: visible;
 }  

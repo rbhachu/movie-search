@@ -6,9 +6,6 @@ import { faStar, faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function MovieCard({ movie }) { // import movie props
 
-    // temp hack to ensure back card full width if text short
-    const filler = `\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0`;
-
     // movie title short char limit 26
     const movieTitle = movie.title ? movie.title : 'Title not found'; // check if empty
     const movieTitleShort = movieTitle.length > 26 ? `${movieTitle.substring(0, 26)}...` : movieTitle; // trim length if exceeds max allowed val + add '...' to end
@@ -20,14 +17,11 @@ export default function MovieCard({ movie }) { // import movie props
     const movieRating = movie.vote_average ? movie.vote_average : '-'; // check if empty
 
     // movie description short char limit 106
-    const movieDescription = movie.overview ? movie.overview  : `Description not found` ; // check if empty
-    const movieDescriptionCheck = movieDescription.length < 80 ? `${movieDescription} ${filler}` : movieDescription; // add filler text if description too short
-
+    const movieDescription = movie.overview ? movie.overview + 'asdasdasdasdasd as adasdadadadadadadad In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.' : 'Description not found'; // check if empty
     const movieDescriptionShort = movieDescription.length > 106 ? `${movieDescription.substring(0, 106)}...` : movieDescription; // trim length if exceeds max allowed val + add '...' to end
 
     // const moviePoster = ((movie.poster_path) ? `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}` : PlaceHolder) // v3
     const moviePoster = ((movie.poster_path) ? `https://image.tmdb.org/t/p/w185/${movie.poster_path}` : PlaceHolder) // v4
-
 
     // flip classes
     const [cardClass, setCardClass] = useState(true) // default 'true' to ensure cards reset on load and face up
@@ -43,38 +37,30 @@ export default function MovieCard({ movie }) { // import movie props
             { cardClass ? 
 
                 (<div className="card-front">
-
-                    <div className="card-front-wrapper">
-
-                        <div className="card-image">
-                            <img
-                                // src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${moviePoster}`} // old static image path
-                                src={moviePoster}
-                                alt={movieTitle + ' poster image'}
-                                title={movieTitle + ' poster image'}
-                                width="185"
-                                height="278"
-                            />
+                    <img
+                        className="card-image"
+                        // src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${moviePoster}`} // old static image path
+                        src={moviePoster}
+                        alt={movieTitle + ' poster image'}
+                        title={movieTitle + ' poster image'}
+                        width="185"
+                        height="278"
+                    />
+                    <div className="card-content-front">
+                        <h3 className="card-title">{movieTitleShort}</h3>
+                        <div className="card-info">
+                            <span className="card-date">
+                                {movieDate}
+                            </span>
+                            <span className="card-rating" alt="Star Rating" title="Star Rating"><FontAwesomeIcon icon={faStar} className="icon-star" />
+                                {movieRating}/10
+                            </span>
                         </div>
-
-                        <div className="card-content-front">
-                            <h3 className="card-title">{movieTitleShort}</h3>
-                            <div className="card-info">
-                                <span className="card-date">
-                                    {movieDate}
-                                </span>
-                                <span className="card-rating" alt="Star Rating" title="Star Rating"><FontAwesomeIcon icon={faStar} className="icon-star" />
-                                    {movieRating}/10
-                                </span>
-                            </div>
-                            <p className="card-desc">
-                                {movieDescriptionShort}
-                               {/* <br />{ movieDescriptionShort.length > 106 ? (<span title="More Details" className="more-info"><FontAwesomeIcon icon={faHandPointRight}  /></span>) : '' } */}
-                            </p>
-                        </div>
-
+                        <p className="card-desc">
+                            {movieDescriptionShort}
+                            <br />{ movieDescriptionShort.length > 106 ? (<span title="More Details" className="more-info"><FontAwesomeIcon icon={faHandPointRight}  /></span>) : '' }
+                        </p>
                     </div>
-
                 </div>)
 
             :
@@ -90,7 +76,7 @@ export default function MovieCard({ movie }) { // import movie props
                             </span>
                         </div>
                         <p className="card-desc">
-                            {movieDescriptionCheck}
+                            {movieDescription}
                             {/*<br /><span title="Go Back" className="go-back">Go Back</span>*/}
                         </p>
                     </div>
