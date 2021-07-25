@@ -1,4 +1,4 @@
-/*SEARCH STATE*************************************************/
+/*SEARCH STATE*/
 /*container for responsive css flex card layout*/
 .container {
   z-index: auto;
@@ -9,13 +9,13 @@
   color:var(--textcolor6);
 }
 
-/*SEARCH RESULTS (LOOP)*************************************************/
+/*SEARCH RESULTS (LOOP)*/
 .container.update {
   opacity: 0;
   visibility: hidden;
 }
 
-/*SEARCH STATE*************************************************/
+/*SEARCH STATE*/
 /* responsive flex card layout */ 
 .card-list { /* DONT NEED THIS???? integrate with container??? */
   display: flex;
@@ -43,13 +43,12 @@
 }
 
 
-/*CARDS*************************************************/
+/*CARDS*/
 .card-front, .card-back  {
   opacity: 0.9;
   filter: drop-shadow(1px 1px 0.5rem var(--dropshadow2));
   margin: 20px;
   padding: 0;
-  border: 0px solid blue;
 }
 .card-front, .card-back  {
   max-width: 460px;
@@ -64,22 +63,17 @@
   filter: drop-shadow(2px 2px 1rem var(--dropshadow1));
 }
 
-
 .card-front-wrapper {
   display: flex;
   flex-direction: row;
   flex: 1 auto;
   margin: 0;
   padding: 0;
-
   background: var(--backgroundcolorsetA1);
   background: var(--backgroundcolorsetA2);
   background: var(--backgroundcolorsetA3);
-
   border-radius: 0px 5px 5px 0px; /*no borders to left side*/
-  border-top: 1px solid var(--bordercolor3);
-  border-right: 1px solid var(--bordercolor3);
-  border-bottom: 1px solid var(--bordercolor3);
+
   white-space: pre-line; /*pass html*/
 }
 
@@ -113,7 +107,6 @@
     border: 5px solid var(--bordercolor2);
   }
   
-  /******************************/
   /* Movie Title h3 */
   .card-title {
     font-family: var(--fontfamily2);
@@ -133,6 +126,7 @@
     /* Movie Rating Star Img */
     .icon-star {
       margin-right: 4px; /*spacing from rating value text*/
+      color: var(--textcolor4);
     }
   .card-content-front .card-desc, .card-content-back .card-desc {
     color: var(--textcolor6);

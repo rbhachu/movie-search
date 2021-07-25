@@ -22,7 +22,6 @@ export default function Home () { // url coming from searchForm as props
     // console.log(`Total Pages: ${fetchdatapages}`) // total pages
     // console.log(`Total Results: ${fetchdatatotal}`) // total results
 
-    
     // function handleSubmit(e) {    
     function handleSubmit(e) {
         e.preventDefault(); // stop page refresh on submit  
@@ -66,7 +65,6 @@ export default function Home () { // url coming from searchForm as props
         <li key={keyval++} onClick={handleSubmit} className={query.toLowerCase() === movielink.toLowerCase() ? 'match' : 'nomatch'}>{movielink}</li>
     );
 
-
     // toggle burger menu
     const [divClass, setDivClass] = useState(true) // default 'true' to ensure cards reset on load and face up
     const setToggle = () => { // on click event toggle classes
@@ -91,7 +89,6 @@ export default function Home () { // url coming from searchForm as props
         <div className="wrapper">
 
             <header className={ !url ? 'home' : 'search' }>
-
                 <div>
                     <h1>
                         <span className="hide-text">Movie Search</span>
@@ -104,10 +101,7 @@ export default function Home () { // url coming from searchForm as props
                         />
                     </h1>             
                 </div>
-
-
                 <div className="input-wrapper">
-
                     <span 
                         aria-label="Menu" 
                         title="Menu" 
@@ -116,9 +110,7 @@ export default function Home () { // url coming from searchForm as props
                         icon={faBars} 
                     />
                     </span>
-
                     <form name="search" onSubmit={handleSubmit}>
-                    
                         <label title="Home" htmlFor="query">
                             <h2><a href="/"><span className="hide-text">Home</span></a></h2>
                         </label>
@@ -137,15 +129,12 @@ export default function Home () { // url coming from searchForm as props
                         </button>
                     </form>
                 </div>
-
             </header>
 
-
-            <section className={ !url ? 'section page-main' : 'section search page-main' }>
+            <section className={ !url ? 'section page-main' : 'section page-main search' }>
                 { error && <div className="error"><span>{ error }</span></div> }
                 { formerror && <div className="error"><span>{ formerror }</span></div> }
                 { fetchstatus && <div className="loading"><img src={ LoadingAnimation } alt="Searching" title="Searching" /></div> }
-
                 <div className={ ( length > 0 ) ? 'container' : 'container update' }>
                     { fetchdata && <SearchMovies fetchdata={fetchdata} /> }
                 </div>

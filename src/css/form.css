@@ -5,13 +5,11 @@ label {
 
 }
 
-/*HOMEPAGE STATE****************************************************/
+/*HOMEPAGE STATE*/
 /*wrapper for search form (label + (input + search icon button)) to give illusion of being a single component */
 .input-wrapper {
-
   width: 100%;
   margin: 0 auto;
-
   display: flex;
   justify-content: center; /*align h centre*/
   align-items: center; /*align v centre*/
@@ -20,20 +18,15 @@ label {
 /* search form */
 form {
   background: var(--backgroundcolor4);
-
   margin: 0px 0px 5px 0px; /*margin around search bar*/
   padding: 5px 0 5px 5px;
-
   border-radius: 5px;
   border-bottom: 0px solid #333;
   box-shadow: 0px 5px 30px var(--boxshadow1);
-
   width: 100%;
   display: flex;
   justify-content: center; /*align h centre*/
   align-items: center; /*align v centre*/
-
-
 }
 
 /*hide form label logo*/
@@ -45,7 +38,6 @@ form label h2 a {
   padding: 0;
   height: 0;
   width: 0;
-
   transition: margin 0.5s, height 0.5s, width 0.5s, visibility 2s, opacity 2s, transform 2s;
 }
 
@@ -60,53 +52,43 @@ form label h2 a {
 .search form label h2 a, .search form label h2 a:hover {
   visibility: visible;
   opacity: 1;
-
   white-space: nowrap; /*hide text*/
   overflow: hidden;
   text-indent: 100%;
-
   margin: 0 7.5px 0 2.5px; /* spacing around label */
   padding: 0;
-
   height: 40px;
   width: 30px;
-
   background-size: 30px 40px;
   background-repeat: no-repeat;
   transition: all 0.5s ease-in-out; /*allows slow fade in/out on hover*/
 }
 .search form label h2 a {
   background-image: url('/src/images/logo-small.png');
-  border: 0px solid rgb(122, 221, 9);
-
 }
 .search form label h2 a:hover {
   background-image: url('/src/images/logo-small-hover.png');
 }
-/*SEARCH STATE*************************************************/
+/*SEARCH STATE*/
 
 
 
-/*HOMEPAGE STATE****************************************************/
+/*HOMEPAGE STATE*/
 /* search form input */
 form input {
   width: 100%;
   min-height: 40px; /*homepage input min-height*/
-
   margin: 0px 0 0 0px;
   padding: 5px 5px 5px 10px; /*inside input padding*/
-
   color: var(--textcolor2);   
   font-size: 1.4em; 
   font-weight: var(--boldlevel3);
   text-align: left;
   vertical-align: middle;
-
   border: 0.2em solid var(--bordercolor6);
   border-radius: 2px;
   background-image: none;  
   outline: none; /* hides outline on selecting input */
-
   transition: all 0.5s ease-in-out; /*allows slow fade in/out on hover*/
 }
 /* search form input hover action */
@@ -143,7 +125,6 @@ form button, form button:hover {
 }
 form button {
   transition: all 0.5s ease-in-out; /*allows slow fade in/out on hover*/
-  border: 0px solid rgb(122, 221, 9);
   color: var(--textcolor1);
   font-size: 2em;
 }

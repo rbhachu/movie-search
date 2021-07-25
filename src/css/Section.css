@@ -1,11 +1,11 @@
 @import url('./status.css');
 @import url('./container.css');
 
-/*HOMEPAGE STATE****************************************************/
+/*HOMEPAGE STATE*/
 .section {
     visibility: hidden;
 }
-/*SEARCH STATE*************************************************/
+/*SEARCH STATE*/
 .section.search {
     display: grid; /* center content v & h*/
     align-items: center;

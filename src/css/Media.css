@@ -1,18 +1,4 @@
 
-/*************************************************************************/
-/* CARD/IMAGE SIZES
-75% 345 x 208.5 - 365
-.......................
-100% 460 x 278 - 480
-90% 414 x 250.2 - 434
-80% 368 x 222.4 x388
-70% 322 x 194.6 x342
-60% 276 x 166.8 - 0/364
-50% 230 x 139
-25% 116 x 70
-*/
-
-/* @Media */
 /* size1 */
 @media screen and (min-width: 0px) and (max-width: 390px) {
   .error span, .cursor-pointer span {
@@ -84,7 +70,6 @@
   .card-content-front .card-desc, .card-content-back .card-desc {
     line-height: 1.3em;
   }
-
 }
 /* size 4  */ /*480*/
 @media screen and (min-width: 490px){
@@ -110,7 +95,6 @@
     width: 100vw;
   }
 }  
-
 @media screen and (min-width: 522px) {
   .card-back, .card-front  {
     width: 100vw;

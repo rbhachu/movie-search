@@ -11,30 +11,9 @@
   src: url('../fonts/BebasNeue-Regular.ttf');
   font-display: swap;
 }
-/*@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');*/
-@font-face { 
-  font-family: 'Permanent Marker';
-  src: url('../fonts/PermanentMarker-Regular.ttf');
-  font-display: swap;
-}
-
-/**************************************************************************/
-
 
 /* theme root styles */
 :root {
-/*
-h1 title
-h2 form label
-h3 top links
-h4 footer title/copy
-
-span card? footer?
-p card? footer?
-
-ul/li footer social links
-*/
-
   --textcolor1: #000; 
   --textcolor2: #ED213A;  /*logo color: FF0000*/
   --textcolor3: #999; 
@@ -73,14 +52,12 @@ ul/li footer social links
   --boxshadow3: #333; 
   --boxshadow4: #FFF; 
 
-
   --boldlevel1: 000;
   --boldlevel2: 500;
   --boldlevel3: 900;
 
   --fontfamily1: 'Open Sans Condensed', Arial, Helvetica, sans-serif; /* site default */
   --fontfamily2: 'Bebas Neue', cursive; /* card movie title */
-  --fontfamily3: 'Permanent Marker', cursive; /* footer title/copyright text */
 }
 
 .wrapper {
@@ -105,41 +82,15 @@ body {
   font-family: var(--fontfamily1);
   color: var(--textcolor1);
 
-  /*
-	max-width: 100vw;
-  min-height: 100vh;
-	margin: 0 auto; 
-	float: none; 
-  */
-
   /*bg repeating image*/
   background-color: var(--backgroundcolor2);
   background-attachment: fixed;
   background-size: 600px 450px;
   background-repeat: repeat;
   background-image: url('/src/images/movie-bg.png');
-
-  border: 0px solid #0454bd;
 }
-
 
 img {
   max-width: 100%;
   height: auto;
-}
-
-.hide-text {
-  /*
-  h1 span text
-  h2 span label
-
-  visibility: hidden;
-  height: 0;
-  width: 0;
-  display: none;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-indent: 100%;
-    */
 }

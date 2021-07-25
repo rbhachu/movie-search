@@ -1,12 +1,10 @@
 @import url('./form.css');
 
-
-/*HOMEPAGE STATE****************************************************/
+/*HOMEPAGE STATE*/
 header.home {
   width: 100%;
   margin: 0; /*space from top of page*/
   padding: 0 15px 10px 15px;
-  border: 0px solid rgb(122, 221, 9);
   position: relative;
   top: 10vh;
 
@@ -28,16 +26,11 @@ header.home {
 
 
 /* show h1 heading image */
-header.home h1 {
-  border: 0px solid rgb(122, 221, 9);
-}
-
 header.home h1 img {
   max-width: 95%;
   height: auto;
   margin: 0 auto;
   padding: 0; /*add spacing to top of logo on home page*/
-  border: 0px solid rgb(122, 221, 9);
 }
 
 /*burger menu icon */
@@ -45,7 +38,7 @@ header.home .icon-burger-form {
   display: none;
 }
 
-/*SEARCH STATE*************************************************/
+/*SEARCH STATE*/
 /* fix header to top of page */
 header.search {
   flex-grow: 0;
@@ -55,11 +48,6 @@ header.search {
   margin: 0;
   padding: 10px 10px 10px 10px;
   background-color: rgba(0, 0, 0, 0.3);
-
-  /*
-  background: var(--backgroundcolor3);
-  border-bottom: 1px solid var(--bordercolor1);
-  */
   position:sticky;
   top: 0;
   left: 0;
@@ -70,7 +58,6 @@ header.search {
     position:unset;
   }
 }
-
 
 header.search h1 {
   visibility: hidden;
