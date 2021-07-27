@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faLinkedin, faStackOverflow, faBlogger } from "@fortawesome/free-brands-svg-icons";
 import { faHashtag, faWindowClose, faHome, faStar } from "@fortawesome/free-solid-svg-icons";
 
-export default function BurgerMenu ({ topMovieLinks, setToggle, closeBurger }) { // url coming from searchForm as props
+export default function BurgerMenu ({ topMovieLinks, closeBurger }) { 
 
     return (
         <>
@@ -13,9 +13,9 @@ export default function BurgerMenu ({ topMovieLinks, setToggle, closeBurger }) {
                 <div className="burgermenu">
 
                     <div>
-                        <div className="wrap">
+                        <div className="burgermenu__wrap">
                             <img 
-                                className="burger-logo" 
+                                className="burgermenu__logo" 
                                 src={imageHeaderLogo} 
                                 width="225" 
                                 height="47" 
@@ -26,15 +26,16 @@ export default function BurgerMenu ({ topMovieLinks, setToggle, closeBurger }) {
                                 aria-label="close menu" 
                                 title="close menu" 
                                 onClick={closeBurger} 
-                                className="icon-close"
+                                className="burgermenu__icon"
                             >
                                 <FontAwesomeIcon icon={faWindowClose} />
                             </span>
                         </div>
 
+
                         <div>
                             <h3>
-                                <a onClick={setToggle} href="/">
+                                <a href="/">
                                     <FontAwesomeIcon icon={faHome} className="icon-burger" />
                                     Home
                                 </a>
@@ -47,7 +48,11 @@ export default function BurgerMenu ({ topMovieLinks, setToggle, closeBurger }) {
                                     {topMovieLinks}
                                 </ul>
                         </div>
+
+
                     </div>
+
+
 
 
                     <div>
@@ -57,7 +62,7 @@ export default function BurgerMenu ({ topMovieLinks, setToggle, closeBurger }) {
                                        <h3>&copy; {new Date().getFullYear()} Rishi Singh Bhachu</h3>
                                     </li>
                                     <li>
-                                        <span className="disc-text">PWA enabled app, built with React, HTML, CSS, FontAwesome &amp; The Movie DB API</span>
+                                        <span className="disc-text">Mobile optimised, PWA enabled app. Built with React, HTML, FlexBox, SASS, FontAwesome &amp; The Movie DB API</span>
                                     </li>
                                 </ul>
                         </div>

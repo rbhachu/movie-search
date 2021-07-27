@@ -89,6 +89,7 @@ export default function Home () { // url coming from searchForm as props
         <div className="wrapper">
 
             <header className={ !url ? 'home' : 'search' }>
+
                 <div>
                     <h1>
                         <span className="hide-text">Movie Search</span>
@@ -101,15 +102,18 @@ export default function Home () { // url coming from searchForm as props
                         />
                     </h1>             
                 </div>
+
                 <div className="input-wrapper">
-                    <span 
+
+                    <span className="button-burger" 
                         aria-label="Menu" 
                         title="Menu" 
-                        className="icon-burger-form" 
-                        onClick={setToggle}><FontAwesomeIcon 
-                        icon={faBars} 
+                        onClick={setToggle}
+                    >
+                        <FontAwesomeIcon icon={faBars} 
                     />
                     </span>
+
                     <form name="search" onSubmit={handleSubmit}>
                         <label title="Home" htmlFor="query">
                             <h2><a href="/"><span className="hide-text">Home</span></a></h2>
@@ -128,10 +132,12 @@ export default function Home () { // url coming from searchForm as props
                             <FontAwesomeIcon icon={faSearch} />
                         </button>
                     </form>
+                    
                 </div>
+
             </header>
 
-            <section className={ !url ? 'section page-main' : 'section page-main search' }>
+            <section className={ !url ? 'section' : 'section search' }>
                 { error && <div className="error"><span>{ error }</span></div> }
                 { formerror && <div className="error"><span>{ formerror }</span></div> }
                 { fetchstatus && <div className="loading"><img src={ LoadingAnimation } alt="Searching" title="Searching" /></div> }

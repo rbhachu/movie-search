@@ -1,0 +1,165 @@
+@use "../abstracts/variables" as *; // removes need to call namespace
+@use "../abstracts/mixins" as *;  // removes need to call namespace
+
+// popout
+.toggle-hide {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    transition: width 0.5s, visibility 2s, left 0.5s, transform 2s;
+}
+.toggle-show {
+    visibility: visible;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 0.5s, visibility 2s, left 0.5s, transform 2s;
+    z-index: 3;
+}
+
+// shadow bg layer
+.burgermenu-wrapper {
+    @include no-pad-margin();
+    width: 100vw;
+    height: 100vh;
+    background-color: $backgroundcolor7;
+    z-index: 3;
+  }
+
+.burgermenu {
+    padding: 20px;
+    height: 100vh;
+    width: 50vw;
+    z-index: 4;
+    background-color: $backgroundcolor1;
+    display: grid;
+    align-content: space-between;
+
+    // wrappper for top logo and close button
+    &__wrap {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 0 0;
+    }
+
+    &__logo {
+        width: 200px;
+        height: auto;
+    }
+
+    // close icon
+    &__icon {
+        font-size: $fontsize10;
+        cursor: pointer;
+    }
+
+    h3 {
+        font-size: $fontsize4; 
+        text-transform: uppercase;
+        margin: 50px 0 10px 0;
+        padding: 10px 0 0 0;
+        border-top: $border3 solid $bordercolor3;
+    }
+
+    h3, a {
+        color: $textcolor1;
+    }
+
+    a:hover {
+        color: $textcolor2;
+        text-decoration: underline;
+    }
+
+    // h3 icons in burger menu
+    .icon-burger {
+        color: $textcolor2;
+        font-size: $fontsize2;
+        margin: 0 5px 0 0;
+    }
+}
+
+
+// top movie links
+.top-links {
+
+    ul {
+      margin: 10px 0 0 0;
+      padding: 5px 0px 5px 0;
+    }
+  
+    li {
+      margin: 0 0 0 15px;
+      padding: 5px 0 10px 0;
+      color: $textcolor2;
+      font-size: $fontsize3;
+      font-weight: $boldlevel3;
+      text-transform: uppercase;
+      text-align: left;
+      list-style-type: none;
+
+        &:hover {
+            color: $textcolor2;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        // if search matches with a top link disable its click and highlight
+        &.match {
+            color: $textcolor1;
+            text-decoration: none;
+            cursor: default; 
+        }
+    }
+
+}
+  
+ul.top-links > li:before {
+    content: "–";
+    position: absolute;
+    margin-left: -1.1em;
+}
+  
+
+// FOOTER
+.footer-text {
+
+    .disc-text {
+        font-style: normal;
+        color: $textcolor1;
+        text-align: left;
+        margin: 0;
+    }
+
+}
+
+.footer-icons {
+    margin: 0 0 5vh 0;
+
+    ul {
+        @include no-pad-margin();
+        display: flex;
+        justify-content: left;
+    }
+
+    li {
+        display: inline-block;
+        padding: 5px 10px 5px 0;
+    }
+
+    .icon {
+        color: $textcolor1;
+        font-size: $fontsize10;
+
+        &:hover {
+            color: $textcolor2;
+            font-size: $fontsize10;
+        }
+    }
+
+}

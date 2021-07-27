@@ -1,0 +1,20 @@
+
+@use "../components/_status";
+@use "../components/_container";
+
+// HOMEPAGE STATE
+section {
+    visibility: hidden;
+    flex-grow: 1;
+    
+    // SEARCH STATE
+    &.search {
+        display: grid; //  center content v & h
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0 10px 0; //  spacing from top fixed header/search form  
+        padding: 0px 10px 60px 10px; 
+        z-index: 1;
+        visibility: visible;
+    }  
+}

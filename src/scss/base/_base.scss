@@ -1,0 +1,41 @@
+@use "../abstracts/variables" as *; // * removes need to call namespace
+
+// base styles
+
+html {
+  scroll-behavior: smooth;
+  font-size: 80%;
+}
+  
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: $fontfamily1;
+  color: $textcolor1;
+
+  // bg repeating image
+  background-color: $backgroundcolor2;
+  background-attachment: fixed;
+  background-size: 600px 450px;
+  background-repeat: repeat;
+  background-image: url('../../images/movie-bg.png');
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .wrapper > * {
+    padding: 0px;
+  }
+
+  //  header h1 movie search, form h2 home button (logo label)
+  .hide-text {
+    display: none;
+  }
+  
+}

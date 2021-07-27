@@ -1,0 +1,41 @@
+// SEARCH STATE 
+
+@use "../abstracts/variables" as *; // removes need to call namespace
+@use "../abstracts/mixins" as *;  // removes need to call namespace
+
+// error status message 
+.error {
+
+  visibility: visible;
+  opacity: 1;
+  margin-top: 30px;
+  padding: 10px; // change to centre of page??? flex/justify?
+  text-align: center;
+  background-color: $backgroundcolor1;
+  border-radius: $borderradius2;
+  @include boxshadow2($textcolor1);
+
+  span {
+    color: $textcolor2;
+    font-weight: $boldlevel3;
+    text-transform: none;
+  }
+
+}
+
+// loading animation message 
+.loading {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -50px;
+  left: 0;
+
+  img {
+    height: 150px;
+    width: 150px;
+  }
+
+}

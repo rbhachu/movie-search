@@ -1,0 +1,86 @@
+@use "../abstracts/variables" as *; // * removes need to call namespace
+@use "../abstracts/mixins" as *;  // * removes need to call namespace
+@use "../components/_form";
+
+// HOMEPAGE STATE
+header {
+
+  &.home {
+    width: 100%;
+    margin: 0; // space from top of page
+    padding: 0 15px 10px 15px;
+    position: relative;
+    top: 10vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    opacity: 1;
+    visibility: visible;
+    flex-grow: 1;
+    animation: fade-heading 2s linear;
+    transition: visibility 0.5s, opacity 1s, transform 1s;
+
+    @keyframes fade-heading {
+      0% { opacity: 0; visibility: hidden;}  
+      25% { opacity: 1; visibility: visible;}
+      100% { opacity: 1; visibility: visible;}
+    }
+
+    //  show h1 heading image 
+    h1 img {
+      max-width: 95%;
+      height: auto;
+      margin: 0 auto;
+      padding: 0; // add spacing to top of logo on home page
+    }
+
+    // burger button menu icon 
+    span.button-burger {
+      display: none;
+    }
+
+  }
+
+}
+
+// SEARCH STATE - fix header to top of page on search
+header {
+
+  &.search {
+    flex-grow: 0;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px;
+    background-color: $backgroundcolor8;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+      h1 {
+        visibility: hidden;
+        opacity: 0;
+        display: none;
+        height: 0;
+        width: 0;
+        @include no-pad-margin();
+      }
+
+    // burger button menu icon 
+    span.button-burger {
+      font-size: $fontsize10;
+      cursor: pointer;
+      color: $textcolor3;
+      margin: 0 20px 0 0;
+      @include boxshadow1($textcolor8);
+    
+      &:hover {
+        color: $textcolor4;
+      }
+    
+    }
+
+  }
+  
+}

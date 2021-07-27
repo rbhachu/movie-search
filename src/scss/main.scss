@@ -1,0 +1,10 @@
+//@use "./abstracts/variables" as *; // * removes need to call namespace
+//@use "./abstracts/mixins" as *;  // * removes need to call namespace
+@use "./base/base";
+@use "./base/typography";
+@use "./layout/header";
+@use "./layout/section";
+@use "./components/burger-menu";
+@use "./components/scrolltoTop"; 
+@use "./abstracts/media";
+@use "../css/normalize";
