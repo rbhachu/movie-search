@@ -10,13 +10,13 @@
 </div>
 
 ## Description
-<p>React Movie Search, created with React (Hooks/Effect), HTML, FlexBox, SASS, FontAwesome. Connecting to The Movie DB via a RESTful API converted to JSON Format.</p>
+<p>React Movie Search, created with React (Hooks/Effect), HTML, FlexBox, SASS, FontAwesome. Connecting to The Movie DB via a RESTful API, converted to JSON Format.</p>
 
 ## Features
 **Project features:**
   <ul>
     <li>Custom Reuseable `Fetch API` Hook </li>
-    <li>Dynamic Sticky Header (Un-stuck when viewing in mobile landscape orientation to maximise view)</li>
+    <li>Dynamic Sticky Header (Un-stuck when viewing in mobile landscape orientation to maximise view <415px height>)</li>
     <li>`Back-to-top` Scroll Feature</li>
     <li>Custom User-Friendly Error Messages</li>
     <li>Search Preloader Animation</li>
@@ -28,6 +28,7 @@
     <li>Custom Fav Ico</li>
     <li>FontAwesome Icons</li>
     <li>PWA Enabled</li>
+    <li>Continuous Deployment (CD) from GitHub Repo to Netlify Host Server</li>
   </ul>
 
 ## NPM Modules
