@@ -19,7 +19,7 @@
 .env.production.local
 
 # images - dont upload images sources
-/src/images/SOURCE
+/src/images/_SOURCE
 
 #dont upload old source files
 /src/_ARCHIVE

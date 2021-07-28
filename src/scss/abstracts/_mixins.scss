@@ -1,0 +1,41 @@
+@use "./variables" as *;
+
+// no padding/margin
+@mixin no-pad-margin {
+  margin: 0;
+  padding: 0;
+}
+
+// box shadow
+@mixin boxshadow1($color) {
+  box-shadow: 0px 5px 30px $color;
+}
+@mixin boxshadow2($color) {
+  box-shadow: 0px 0px 10px $color;
+}
+@mixin boxshadow3($color) {
+  box-shadow: 0px 0px 20px $color;
+}
+
+// drop shadow
+@mixin drop-shadow1($color) {
+  filter: drop-shadow(2px 2px 1rem $color);
+}
+@mixin drop-shadow2($color) {
+  filter: drop-shadow(1px 1px 0.5rem $color);
+}
+@mixin drop-shadow3($color) {
+  filter: drop-shadow(1px 1px 0.1rem $color);
+}
+
+// color gradients for cards
+@mixin backgroundcolorgradient1() {
+  background-color: #111;  // fallback for old browsers 
+  background-color: linear-gradient(90deg, rgba(10,9,9,1) 100%, rgba(108,87,87,1) 100%); // W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ 
+  background-color: -webkit-linear-gradient(90deg, rgba(10,9,9,1) 100%, rgba(108,87,87,1) 100%); // Chrome 10-25, Safari 5.1-6 
+}
+@mixin backgroundcolorgradient2() {
+  background-color: #ED213A;  /* fallback for old browsers */
+  background-color: -webkit-linear-gradient(to top, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+  background-color: linear-gradient(to top, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

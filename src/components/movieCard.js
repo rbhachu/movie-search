@@ -42,7 +42,7 @@ export default function MovieCard({ movie }) { // import movie props
             { cardClass ? 
 
                 (<div className="card-front">
-                    <div className="card-front-wrapper">
+                    <div className="card-wrapper">
                         <div className="card-image">
                             <img
                                 // src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${moviePoster}`} // old static image path

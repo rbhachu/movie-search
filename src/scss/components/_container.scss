@@ -1,0 +1,139 @@
+@use "../abstracts/variables" as *; // removes need to call namespace
+@use "../abstracts/mixins" as *;  // removes need to call namespace
+
+// container for responsive css flex card layout
+.container {
+  //z-index: auto;
+  opacity: 1;
+  visibility: visible;
+  @include no-pad-margin();
+  color: $textcolor6;
+
+  // SEARCH RESULTS (LOOP)
+  &.update {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+}
+
+// responsive flex card layout
+.card-list { // DONT NEED THIS???? integrate with container??? 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: space-between;
+  gap: 20px 40px; // top & bottom / left/right
+}
+
+// CARD FLIP
+.card-front, .card-back {
+  z-index: 1;
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center center;
+  transform-style: preserve-3D;
+  backface-visibility: hidden; 
+}
+.card-front {
+  transform: translateX(0%) rotateY(0deg);
+}
+.card-back {
+  transform: translateX(0%) rotateY(360deg);
+}
+
+// CARDS
+.card-front, .card-back {
+  opacity: 0.9;
+  @include drop-shadow2($textcolor1);
+
+  margin: 0 10px; // space either side of cards
+  padding: 0;
+  max-width: $max-width-card;
+  height: auto;
+
+    // hightlight card on hover
+    &:hover {  
+      opacity: 1; // full opacity on hover to give vibrance to image on hover
+      cursor: pointer;
+      @include drop-shadow1($textcolor4);
+    }
+
+}
+
+// front card
+.card-wrapper {
+  @include no-pad-margin();
+  display: flex;
+  flex-direction: row;
+  flex: 1 auto;
+  @include backgroundcolorgradient1();
+  border-radius: $borderradiusall; // no borders to left side
+  white-space: pre-line; // pass html
+
+    // Movie Poster 
+    &.card-image, img {
+      max-width: $max-width-card-img;
+      max-height: $max-height-card-img;
+      @include no-pad-margin();
+    }
+
+    // wrapper div for title, date, rating and description 
+    &.card-content-front {
+      overflow: hidden;
+    }
+
+}
+
+// wrapper div for title, date, rating and description 
+.card-content-front, .card-content-back {
+  margin: 0; // adds blank space to right, so overflow doesnt go to edge for long title text
+  padding: 10px 10px 10px 15px;
+  white-space: pre-line; //pass html
+  }
+  
+.card-content-back {
+    height: 100%;
+    max-width: 100%;
+    overflow: visible;
+    background: $backgroundcolor6;
+    background-attachment: local;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../images/worn-paper.png');
+    opacity: 1;
+    border-radius: $borderradius2;
+    border: $border4 solid $bordercolor7;
+  }
+  
+  // Movie Title h3 
+  .card-title {
+    font-family: $fontfamily2;
+    overflow: hidden;
+    @include drop-shadow3($textcolor1);
+
+  }
+    // Movie Date + Movie Rating Star Img + Rating 
+  .card-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    @include drop-shadow3($textcolor1);
+  }
+    // Movie Date 
+    .card-date, .card-rating {
+      color: $textcolor3;
+      font-weight: $boldlevel1;
+    }
+    // Movie Rating Star Img 
+    .icon-star {
+      margin-right: 4px; //spacing from rating value text
+      color: $textcolor4;
+    }
+  .card-content-front .card-desc, .card-content-back .card-desc {
+    color: $textcolor6;
+    @include drop-shadow3($textcolor1);
+
+  }

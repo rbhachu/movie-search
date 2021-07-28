@@ -1,0 +1,146 @@
+@use "../abstracts/variables" as *; // removes need to call namespace
+@use "../abstracts/mixins" as *;  // removes need to call namespace
+
+// Default Values
+
+.input-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center; //align h centre
+  align-items: center; //align v centre
+  margin: 0 auto;
+
+  // form
+  form {
+    background: $backgroundcolor4;
+    margin: 0px 0px 5px 0px; //margin around search bar
+    padding: 5px 0 5px 5px;
+    border-radius: $borderradius2;
+    @include boxshadow1($textcolor1);
+    width: 100%;
+    display: flex;
+    justify-content: center; //align h centre
+    align-items: center; //align v centre
+
+      // form label logo
+      label {
+        visibility: visible;
+
+        // hide form label logo
+        h2 a {
+          visibility: hidden;
+          opacity: 0;
+          display: block;
+          @include no-pad-margin();
+          height: 0;
+          width: 0;
+          transition: margin 0.5s, height 0.5s, width 0.5s, visibility 2s, opacity 2s, transform 2s;
+        }
+
+      }
+
+      // search form input 
+      input {
+        width: 100%;
+        min-height: 40px; //homepage input min-height
+        margin: 0;
+        padding: 5px 5px 5px 10px; //inside input padding
+        color: $textcolor2;   
+        font-size: $fontsize6; 
+        font-weight: $boldlevel3;
+        text-align: left;
+        vertical-align: middle;
+        border: $border2 solid $bordercolor6;
+        border-radius: $borderradius1;
+        background-image: none;  
+        outline: none; // hides outline on selecting input 
+        transition: all 0.5s ease-in-out; //allows slow fade in/out on hover
+      
+        // search form input hover action 
+        &:hover, 
+        &:focus, 
+        &:active, 
+        &:link {  
+          background-color: $backgroundcolor5;
+          background-image: none;  
+          border: $border2 solid $bordercolor5;
+        }
+
+        // fix to ensure search input text color is consistent 
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover, 
+        &:-webkit-autofill:focus {
+          -webkit-text-fill-color: $textcolor2;
+        }
+
+        // search form input placeholder default text color 
+        &::placeholder {
+          color: $textcolor5;
+        }
+
+      }
+    
+      // form search button
+      button {
+        height: 25px;
+        width: 25px;
+        margin: 0 10px; // spacing around button 
+        padding: 0; 
+        border: $border1;
+        outline: none;
+        cursor: pointer;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 25px 25px;
+        background-color: transparent;
+        transition: all 0.5s ease-in-out; // allows slow fade in/out on hover
+        color: $textcolor1;
+        font-size: $fontsize10;
+
+          &:hover {
+            color: $textcolor4;
+          }
+      }
+
+  }
+
+}
+
+
+// SEARCH STATE
+.search {
+
+  .input-wrapper {
+    padding: 5px 0 5px 0px;
+    max-width: 600px;
+
+    form label {
+      // show form label, but hide text and show small logo img
+      h2 a, h2 a:hover {
+        visibility: visible;
+        opacity: 1;
+        white-space: nowrap; // hide text
+        overflow: hidden;
+        text-indent: 100%;
+        margin: 0 7.5px 0 2.5px; // spacing around label 
+        padding: 0;
+        height: 40px;
+        width: 30px;
+        background-size: 30px 40px;
+        background-repeat: no-repeat;
+        transition: all 0.5s ease-in-out; // allows slow fade in/out on hover
+      }
+
+      h2 a {
+        background-image: url('../../images/logo-small.png');
+      }
+
+      h2 a:hover {
+        background-image: url('../../images/logo-small-hover.png');
+      }
+
+    }
+
+  }
+
+}
