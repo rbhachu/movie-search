@@ -46,7 +46,7 @@
 // CARDS
 .card-front, .card-back {
   opacity: 0.9;
-  @include drop-shadow2($textcolor1);
+  //@include drop-shadow2($textcolor1);
 
   margin: 0 10px; // space either side of cards
   padding: 0;
@@ -112,7 +112,7 @@
   .card-title {
     font-family: $fontfamily2;
     overflow: hidden;
-    @include drop-shadow3($textcolor1);
+    @include drop-shadow3($textcolor8);
 
   }
     // Movie Date + Movie Rating Star Img + Rating 
@@ -120,7 +120,7 @@
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
-    @include drop-shadow3($textcolor1);
+    @include drop-shadow3($textcolor8);
   }
     // Movie Date 
     .card-date, .card-rating {
@@ -134,6 +134,6 @@
     }
   .card-content-front .card-desc, .card-content-back .card-desc {
     color: $textcolor6;
-    @include drop-shadow3($textcolor1);
+    @include drop-shadow3($textcolor8);
 
   }
