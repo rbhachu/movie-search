@@ -93,7 +93,7 @@ _Replace `xxxxx` with your API Key_
 </p>
 
 ````env
-REACT_APP_API_PATH="xxxxx"
+REACT_APP_API_KEY="xxxxx"
 ````
 <p>
 <br>
