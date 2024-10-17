@@ -48,12 +48,12 @@ export default function Home () { // url coming from searchForm as props
             setFormError(null);
             const query = e.target.textContent;
             setQuery(e.target.textContent);
-            setUrl(`https://api.themoviedb.org/4/search/movie?api_key=${process.env.REACT_APP_API_PATH}&language=en-US&page=${page}&include_adult=false&sort_by=release_date.desc&query=${query.replace(/\s/g, '+')}`)   
+            setUrl(`${process.env.REACT_APP_API_URL}?language=en-US&page=${page}&include_adult=false&sort_by=release_date.desc&query=${query.replace(/\s/g, '+')}`)   
         // if search from form input
         } else { 
             //setContainerClass(true); // show container
             setFormError(null);
-            setUrl(`https://api.themoviedb.org/4/search/movie?api_key=${process.env.REACT_APP_API_PATH}&language=en-US&page=${page}&include_adult=false&sort_by=release_date.desc&query=${query.replace(/\s/g, '+')}`)   
+            setUrl(`${process.env.REACT_APP_API_URL}?language=en-US&page=${page}&include_adult=false&sort_by=release_date.desc&query=${query.replace(/\s/g, '+')}`)   
         };
 
     };

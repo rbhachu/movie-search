@@ -15,9 +15,15 @@ export default function useFetch(url) { // import url fetch endpoint as props
 
     const abortCont = new AbortController(); // used to unmount page state on page change to avoid state conflicts
     const signal = { signal: abortCont.signal } // works with abortCont
-
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${process.env.REACT_APP_API_TOKEN}`
+      }
+    };
+    
     if(url) { // if url not empty run fetch
-      //console.log(url.length)
       setError(null); // reset error message
       setLength(0); // reset length
       setFetchdata(null); // clear previous results data
@@ -26,25 +32,23 @@ export default function useFetch(url) { // import url fetch endpoint as props
         setTimeout(() => { // add delay to code to for testing only
 
           setFetchStatus(false); // show loading status
-          fetch(url, signal) // fetch url endpoint + stop loading current page state when going to another page state
+          fetch(url, options, signal) // fetch url endpoint + stop loading current page state when going to another page state
           // returns a promise
 
           // returns a response object
-          .then(res => { 
-            // console.log(res); // check response object
+          .then(response => { 
 
-            // if res.ok' not equal to 'yes', then fire error
-            if(!res.ok) { 
+            // if response.ok' not equal to 'yes', then fire error
+            if(!response.ok) { 
               setLength(0); // reset length
               setFetchStatus(false); // show loading status
               throw Error('Please enter a Movie to Search.') // if value empty, error message to show
               //setError('Please enter a Movie to Search2.') // if value empty, error message to show
-            // if res.ok continue
+            // if response.ok continue
             } else {
               setError(null);
             }
-            // console.log(res.json); // check response object
-            return res.json(); // converts object to useable json object if no issues
+            return response.json(); // converts object to useable json object if no issues
           })
 
 
@@ -54,7 +58,6 @@ export default function useFetch(url) { // import url fetch endpoint as props
             setFetchdata(data.results); // update data state to get and use JSON data
             setFetchdataPages(data.total_pages); // total pages
             setFetchdataTotal(data.total_results); // total results
-            // console.log(`useFetchData: ${data.results.length}`); // check data response object
 
             // if data response object returns 0 results show error
             if(data.results.length === 0) { 
@@ -76,20 +79,15 @@ export default function useFetch(url) { // import url fetch endpoint as props
             setFetchStatus(false); // show loading status
             setFetchdataPages(0); // total pages
             setFetchdataTotal(0); // total results
-            // console.log(err.message) // catches error if unable to connect to JSON server or get API
 
             // check if error is loading page state error, if so ignore
             if(err.name === 'AbortError') { 
-              console.log(err); // test message in console
               throw Error('Search stopped, please try again.') // error message to show
               //setError('Search stopped, please try again.') // error message to show
               } else if (err.message === 'Failed to fetch') { // trying to add custom error message if cant connect to api
               //throw Error('Cant connect to API, please try later.') // error message to show
               setError('Cant connect to API, please try later.') // error message to show
-            } else {
-              // console.log(err); // test message in console
-              // console.log(err.name); // test message in console
-              // console.log(err.message); // test message in console              
+            } else {        
               setError(err.message); // get/show error message
             }
           })
